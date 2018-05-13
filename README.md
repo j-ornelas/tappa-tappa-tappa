@@ -1,2 +1,2 @@
-# tappa-tappa-tappa
-Create-a-song app using Paper.js and Growler.js
+# Tappa Tappa Tappa
+Musical web app built with React, Paper.js, and Growler.js
