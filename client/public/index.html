@@ -7,6 +7,14 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.min.js"></script>
   <script type="text/paperscript" canvas="myCanvas">
   var objects = [];
+  
+  function onMouseDown(event) {
+  var sound = new Howl({
+    src: alphabet["a"]
+  });
+  sound.play();
+  console.log('event', event)
+}
 
   function onKeyDown(event) {
     var maxPoint = new Point(view.size.width, view.size.height);
