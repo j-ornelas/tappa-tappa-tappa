@@ -9,32 +9,48 @@
   var objects = [];
 
   function onMouseDown(event) {
-    console.log('view', view.size.width)
-    let width = view.size.width
+    var maxHeight = view.size.height;
+    var maxWidth = view.size.width
+
+    var height;
+
+    if (event.event.clientX > (maxWidth / 2)){
+      width = "a";
+    } else {
+      width = "b";
+    }
+
+
+
     var sound = new Howl({
-      src: alphabet["a"]
+      src: alphabet[width]
     });
 
     sound.play();
-    console.log('event', event)
+    
+    console.log('event', event.event.clientX)
+    console.log('height', height)
+    console.log('max height', maxHeight)
 }
 
   function onKeyDown(event) {
-    let maxPoint = new Point(view.size.width, view.size.height);
-    let randomPoint = Point.random();
-    let newPoint = maxPoint * randomPoint;
+    var maxPoint = new Point(view.size.width, view.size.height);
+    var randomPoint = Point.random();
+    var newPoint = maxPoint * randomPoint;
 
   	// When a key is pressed, set the content of the text item:
-    let object = new Path.RegularPolygon(newPoint, Math.floor(Math.random() * 3) + 3  , 10);
+    var object = new Path.RegularPolygon(newPoint, Math.floor(Math.random() * 3) + 3  , 10);
     object.fillColor = '#e9e9ff';
     objects.push(object);
+    console.log(objects)
+    console.log(objects[0].area)
+
 
     var sound = new Howl({
       src: alphabet[event.key]
     });
-
     sound.play();
-
+    console.log('event', event)
   }
 
   function onFrame(event){
